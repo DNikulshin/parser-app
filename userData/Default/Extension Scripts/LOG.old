@@ -1,3 +1,2 @@
-2024/03/25-05:56:55.627 3a24 Reusing MANIFEST C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Extension Scripts/MANIFEST-000001
-2024/03/25-05:56:55.627 3a24 Recovering log #3
-2024/03/25-05:56:55.628 3a24 Reusing old log C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Extension Scripts/000003.log 
+2024/03/25-18:29:57.173 180e4 Creating DB /home/dmn/Development_App/parser-app/userData/Default/Extension Scripts since it was missing.
+2024/03/25-18:29:57.176 180e4 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Extension Scripts/MANIFEST-000001

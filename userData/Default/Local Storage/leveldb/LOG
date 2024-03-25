@@ -1,3 +1,7 @@
-2024/03/25-05:57:10.984 2a70 Reusing MANIFEST C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Local Storage\leveldb/MANIFEST-000001
-2024/03/25-05:57:10.986 2a70 Recovering log #11
-2024/03/25-05:57:10.989 2a70 Reusing old log C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Local Storage\leveldb/000011.log 
+2024/03/25-18:30:26.473 4 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Local Storage/leveldb/MANIFEST-000001
+2024/03/25-18:30:26.484 4 Recovering log #3
+2024/03/25-18:30:26.485 4 Level-0 table #3: started
+2024/03/25-18:30:26.491 4 Level-0 table #3: 478352 bytes OK
+2024/03/25-18:30:26.491 4 Recovering log #4
+2024/03/25-18:30:26.492 4 Reusing old log /home/dmn/Development_App/parser-app/userData/Default/Local Storage/leveldb/000004.log 
+2024/03/25-18:30:26.493 4 Delete type=0 #3

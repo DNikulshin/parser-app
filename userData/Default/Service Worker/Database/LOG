@@ -1,3 +1,2 @@
-2024/03/25-05:57:10.898 5120 Reusing MANIFEST C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Service Worker\Database/MANIFEST-000001
-2024/03/25-05:57:10.902 5120 Recovering log #3
-2024/03/25-05:57:10.902 5120 Reusing old log C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Service Worker\Database/000003.log 
+2024/03/25-18:30:31.487 183d6 Creating DB /home/dmn/Development_App/parser-app/userData/Default/Service Worker/Database since it was missing.
+2024/03/25-18:30:31.490 183d6 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Service Worker/Database/MANIFEST-000001

@@ -1,3 +1,2 @@
-2024/03/25-05:56:55.602 5288 Reusing MANIFEST C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Site Characteristics Database/MANIFEST-000001
-2024/03/25-05:56:55.604 5288 Recovering log #3
-2024/03/25-05:56:55.604 5288 Reusing old log C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Site Characteristics Database/000003.log 
+2024/03/25-18:29:57.149 180e5 Creating DB /home/dmn/Development_App/parser-app/userData/Default/Site Characteristics Database since it was missing.
+2024/03/25-18:29:57.154 180e5 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Site Characteristics Database/MANIFEST-000001

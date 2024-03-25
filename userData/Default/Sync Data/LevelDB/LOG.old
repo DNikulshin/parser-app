@@ -1,3 +1,2 @@
-2024/03/25-05:56:55.587 5288 Reusing MANIFEST C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Sync Data\LevelDB/MANIFEST-000001
-2024/03/25-05:56:55.588 5288 Recovering log #3
-2024/03/25-05:56:55.588 5288 Reusing old log C:\Users\nikulshin.d\Desktop\dev\parser-js\userData\Default\Sync Data\LevelDB/000003.log 
+2024/03/25-18:29:57.131 180e4 Creating DB /home/dmn/Development_App/parser-app/userData/Default/Sync Data/LevelDB since it was missing.
+2024/03/25-18:29:57.152 180e4 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Sync Data/LevelDB/MANIFEST-000001

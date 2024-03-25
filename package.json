@@ -6,7 +6,11 @@
   "scripts": {
     "server": "node app.js",
     "server:dev": "nodemon app.js",
-    "start": "cross-env NODE_ENV=production nodemon app.js"
+    "start": "cross-env NODE_ENV=production node app.js",
+    "client-install": "cd client && npm install",
+    "client-build": "cd client && npm run build",
+    "server-install": "npm install",
+    "install-all-deps": "concurrently \"npm run server-install\" \"npm run client-install\" \"npm run client-build\""
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +26,7 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "nodemon": "^3.1.0"

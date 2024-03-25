@@ -7,7 +7,7 @@ function App() {
   const [password, setPassword] = useState('')
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
-  const [isAuth, setIsAuth] = useState(false)
+ // const [isAuth, setIsAuth] = useState(false)
 
   const changeHandler = (event: { target: { value: SetStateAction<string> } }) => {
     if (event.target.value)
@@ -19,37 +19,38 @@ function App() {
     if (value) {
       try {
         setLoading(true)
-        const data = await axios.post(`http://localhost:7777/api/resume/${type}`, {
+        const data = await axios.post(`http://localhost:7777/api/resume/search`, {
           value,
           email,
           type
         })
-        console.log(data);
+        //console.log(data);
         
         setItems(data?.data ?? [])
         setLoading(false)
       } catch (e) {
-        setIsAuth(false)
+       // setIsAuth(false)
         setLoading(false)
         console.log(e);
 
       }
     }
 
-  }, [value])
+  }, [email, value])
 
-  const clickAuth = useCallback(async () => {
+  const clickAuth = useCallback(async (type: string) => {
     if (email && password) {
       try {
-        const data = await axios.post('http://localhost:7777/api/resume/auth', {
+        const data = await axios.post(`http://localhost:7777/api/resume/auth`, {
           email,
-          password
+          password,
+          type
         })
         console.log(data);
         
 
       } catch (e) {
-        setIsAuth(false)
+       // setIsAuth(false)
         console.log(e);
 
       }
@@ -85,7 +86,7 @@ function App() {
           }}
         />
         <button style={{ background: "brown", color: 'white' }}
-          onClick={clickAuth}
+          onClick={() => clickAuth('hh')}
         >Авторизация
         </button>
       </div>
