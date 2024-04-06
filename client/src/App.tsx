@@ -3,8 +3,8 @@ import { SetStateAction, useCallback, useState } from "react"
 
 function App() {
   const [value, setValue] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
  // const [isAuth, setIsAuth] = useState(false)
@@ -19,9 +19,10 @@ function App() {
     if (value) {
       try {
         setLoading(true)
-        const data = await axios.post(`http://localhost:7777/api/resume/search`, {
-          value,
-          email,
+        const data = await axios.post(`http://46.44.24.51/api/resume/search`, {
+          position: value,
+          // email,
+          // password,
           type
         })
         //console.log(data);
@@ -36,60 +37,60 @@ function App() {
       }
     }
 
-  }, [email, value])
+  }, [value])
 
-  const clickAuth = useCallback(async (type: string) => {
-    if (email && password) {
-      try {
-        const data = await axios.post(`http://localhost:7777/api/resume/auth`, {
-          email,
-          password,
-          type
-        })
-        console.log(data);
-        
-
-      } catch (e) {
-       // setIsAuth(false)
-        console.log(e);
-
-      }
-
-    }
-
-
-  }, [email, password])
+  // const clickAuth = useCallback(async (type: string) => {
+  //   if (email && password) {
+  //     try {
+  //       const data = await axios.post(`http://localhost:7777/api/resume/auth`, {
+  //         email,
+  //         password,
+  //         type
+  //       })
+  //       console.log(data);
+  //
+  //
+  //     } catch (e) {
+  //      // setIsAuth(false)
+  //       console.log(e);
+  //
+  //     }
+  //
+  //   }
+  //
+  //
+  // }, [email, password])
 
   return (
     <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', width: '100vw' }}>
       <h1>HH.ru</h1>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '1rem',
-        marginBottom: '1rem'
-      }}>
-        <input type="text" placeholder="Введите email..." style={{ padding: '.5rem' }}
-          onChange={(e) => {
-            if (e.target.value) {
-              setEmail(e.target.value)
-            }
-          }}
-        />
+      {/*<div style={{*/}
+      {/*  display: 'flex',*/}
+      {/*  justifyContent: 'center',*/}
+      {/*  alignItems: 'center',*/}
+      {/*  gap: '1rem',*/}
+      {/*  marginBottom: '1rem'*/}
+      {/*}}>*/}
+      {/*  <input type="text" placeholder="Введите email..." style={{ padding: '.5rem' }}*/}
+      {/*    onChange={(e) => {*/}
+      {/*      if (e.target.value) {*/}
+      {/*        setEmail(e.target.value)*/}
+      {/*      }*/}
+      {/*    }}*/}
+      {/*  />*/}
 
-        <input type="password" placeholder="Введите пароль.." style={{ padding: '.5rem' }}
-          onChange={(e) => {
-            if (e.target.value) {
-              setPassword(e.target.value)
-            }
-          }}
-        />
-        <button style={{ background: "brown", color: 'white' }}
-          onClick={() => clickAuth('hh')}
-        >Авторизация
-        </button>
-      </div>
+      {/*  <input type="password" placeholder="Введите пароль.." style={{ padding: '.5rem' }}*/}
+      {/*    onChange={(e) => {*/}
+      {/*      if (e.target.value) {*/}
+      {/*        setPassword(e.target.value)*/}
+      {/*      }*/}
+      {/*    }}*/}
+      {/*  />*/}
+      {/*  <button style={{ background: "brown", color: 'white' }}*/}
+      {/*    onClick={() => clickAuth('hh')}*/}
+      {/*  >Авторизация*/}
+      {/*  </button>*/}
+      {/*</div>*/}
       <div style={{
         display: 'flex',
         width: '100%',

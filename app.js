@@ -22,11 +22,11 @@ const app = express()
 
 // const PORT_HTTPS =process.env.PORT_HTTPS || 5556
 // const HOST_HTTPS = process.env.HOST_HTTPS || 'localhost'
-// const PORT_HTTP =  process.env.PORT_HTTP || 5555
-// const HOST_HTTP = process.env.HOST_HTTP || 'localhost'
+ const PORT_HTTP =  process.env.PORT_HTTP || 5555
+ const HOST_HTTP = process.env.HOST_HTTP || '192.168.1.123'
 
-const PORT = process.env.PORT || 7777
-const HOST = process.env.HOST || 'localhost'
+//const PORT = process.env.PORT || 7777
+//const HOST = process.env.HOST || 'localhost'
 
 
 app.use(cors())
@@ -60,7 +60,7 @@ const httpServer = http.createServer(app)
 
 async function start() {
     try {
-        httpServer.listen(PORT, HOST ,() => console.log(`App has been started host: http://${HOST}:${PORT}`))
+        httpServer.listen(PORT_HTTP, HOST_HTTP ,() => console.log(`App has been started host: http://${HOST_HTTP}:${PORT_HTTP}`))
         //httpsServer.listen(PORT_HTTPS, HOST_HTTPS ,() => console.log(`App has been started host: https://${HOST_HTTPS}:${PORT_HTTPS}`))
     } catch (e) {
         console.log('Server Error', e.message)
