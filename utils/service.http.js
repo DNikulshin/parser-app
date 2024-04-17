@@ -56,7 +56,7 @@ const Auth = async (page, type = '') => {
 
 
 
-const GetData = async (page, URL, position, typeRequest = '') => {
+const GetData = async ({page, URL, typeRequest = ''}) => {
     try {
         let flag = true
         let counter = 0
@@ -123,7 +123,8 @@ const GetData = async (page, URL, position, typeRequest = '') => {
         // }
         //console.log(content.toLowerCase().includes('автотрэйд'), 'link :', link)
 
-         await fs.writeFile(path.resolve(__dirname, '..', 'RESULT', typeRequest, `${position}.json`), JSON.stringify(allLink, null, 2))
+
+         await fs.writeFile(path.resolve(__dirname, '..', 'RESULT', typeRequest, `${new Date().toLocaleString()}.json`), JSON.stringify(allLink, null, 2))
         //}
         console.log(allLink, 'allLink')
         return allLink

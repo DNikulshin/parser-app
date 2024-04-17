@@ -5,6 +5,7 @@ const http = require('http')
 //const https = require('https')
 const cors = require('cors')
 require('dotenv').config()
+const FtpSrv = require('ftp-srv')
 
 
 // const key = fs.readFileSync(path.resolve(__dirname, 'certs','private.key'))
@@ -55,6 +56,23 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 
+const port=3333;
+const ftpServer = new FtpSrv({
+    url: "ftp://192.168.1.123:" + port,
+    anonymous: true
+});
+
+ftpServer.on('login', ({ connection, username, password }, resolve, reject) => {
+    if(username === 'anonymous' && password === 'anonymous'){
+        return resolve({ root:"/" });
+    }
+    return reject(new errors.GeneralError('Invalid username or password', 401));
+});
+
+ftpServer.listen().then(() => {
+    console.log('Ftp server is starting...')
+});
+
 const httpServer = http.createServer(app)
 //const httpsServer  = https.createServer(options, app)
 
@@ -69,4 +87,3 @@ async function start() {
 }
 
 start()
-

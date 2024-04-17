@@ -1,11 +1,11 @@
 const platform = require('os').platform()
 const puppeteer = require('puppeteer')
 module.exports = {
-    headless: true,
+    headless: false,
     slowMo: 10,
     args: [
         '--start-maximized',
-	'--no-sandbox'
+	    '--no-sandbox'
     ],
     defaultViewport: null,
     timeout: 1000 * 300,

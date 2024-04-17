@@ -20,7 +20,8 @@ function App() {
       try {
         setLoading(true)
         const data = await axios.post(`http://46.44.24.51/api/resume/search`, {
-          position: value,
+         // position: value,
+          url: value,
           // email,
           // password,
           type

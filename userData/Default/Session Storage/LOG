@@ -1,15 +1,3 @@
-2024/04/05-20:15:30.751 2fb3a Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Session Storage/MANIFEST-000001
-2024/04/05-20:15:30.752 2fb3a Recovering log #53
-2024/04/05-20:15:30.753 2fb3a Reusing old log /home/dmn/Development_App/parser-app/userData/Default/Session Storage/000053.log 
-2024/04/05-20:15:38.427 2fb3a Level-0 table #57: started
-2024/04/05-20:15:38.433 2fb3a Level-0 table #57: 13274 bytes OK
-2024/04/05-20:15:38.436 2fb3a Delete type=0 #53
-2024/04/05-20:15:38.437 2fb3a Compacting 4@0 + 1@1 files
-2024/04/05-20:15:38.447 2fb3a Generated table #58@0: 3355 keys, 61110 bytes
-2024/04/05-20:15:38.447 2fb3a Compacted 4@0 + 1@1 files => 61110 bytes
-2024/04/05-20:15:38.448 2fb3a compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/04/05-20:15:38.450 2fb3a Delete type=2 #51
-2024/04/05-20:15:38.450 2fb3a Delete type=2 #57
-2024/04/05-20:15:38.450 2fb3a Delete type=2 #54
-2024/04/05-20:15:38.451 2fb3a Delete type=2 #45
-2024/04/05-20:15:38.451 2fb3a Delete type=2 #48
+2024/04/17-22:04:19.560 6342 Reusing MANIFEST /home/dmn/Development_App/parser-app/userData/Default/Session Storage/MANIFEST-000001
+2024/04/17-22:04:19.561 6342 Recovering log #63
+2024/04/17-22:04:19.562 6342 Reusing old log /home/dmn/Development_App/parser-app/userData/Default/Session Storage/000063.log 

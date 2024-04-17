@@ -15,10 +15,12 @@ const router = Router()
 router.post('/search', async (req, res) => {
     try {
         //console.log(process.env);
-        const { position = 'Электрик', tag = 'ozon', region = 1, period= 7,  type} = req.body
+        const { position = 'Сантехник', tag = 'ozon', region = 1, period= 7,  type, url} = req.body
         console.log('type: ' , type)
+        console.log('url: ' , url)
         const data = await startParse({
-            URL: process.env.SEARCH_URL + process.env.PARAMS + `&search_period${period}`+ `area=${region}` + `&text=!${position} "${tag}"`,
+            //URL: process.env.SEARCH_URL + process.env.PARAMS + `&search_period${period}`+ `area=${region}` + `&text=!${position} "${tag}"`,
+            URL: url,
             position,
             type
         })
