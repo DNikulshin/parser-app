@@ -1,11 +1,12 @@
 const {promises: fs} = require('fs')
 const path = require('path')
+const { existsSync, mkdirSync } = require('fs')
 require('dotenv').config()
 const setCookies = require('./setCookies')
 const fsSync = require('fs')
 const chalk = require("chalk")
 const { parse } = require('node-html-parser')
-//const timer = require('timers/promises')
+const  moment  = require('moment')
 
 const Auth = async (page, type = '') => {
     try {
@@ -56,11 +57,12 @@ const Auth = async (page, type = '') => {
 
 
 
-const GetData = async ({page, URL, typeRequest = ''}) => {
+const GetData = async ({page, URL, typeRequest = 'hh', position}) => {
     try {
         let flag = true
         let counter = 0
         let allLink = []
+        let resumeItems = []
         let item
         await setCookies(page, process.env.EMAIL)
        await page.goto(`${URL}&page=${counter}`, {waitUntil: 'networkidle2'})
@@ -79,13 +81,26 @@ const GetData = async ({page, URL, typeRequest = ''}) => {
                // }
 
                 // })
-               // const test = await page.$$eval('[data-qa="resume-serp__resume"]', item => item.map(el => el.innerHTML))
+              resumeItems = await page.evaluate( async () => {
+
+                  return Array.from(document.querySelectorAll('[data-qa="resume-serp__resume"]'))
+                      .map( item => {
+                          return {
+                              id: item.querySelector('[data-qa="serp-item__title"]').href?.split('?')[0].split('/').pop(),
+                              position: item.querySelector('[data-qa="serp-item__title"]')?.textContent,
+                              link: item.querySelector('[data-qa="serp-item__title"]').href?.split('?')[0],
+                              update: item.querySelector('span')?.innerText?.split('\n')[1]?.replace(/&nbsp;/g,' ') ?? null
+                          }
+                      })
+               })
+
+                // console.log('data-qa="resume-serp__resume :',test)
                 //const htmlString = test;
                 //const root = parse(test);
 
                // console.log(root.querySelectorAll('a')[0].rawAttrs.);
                 //console.log(test)
-                allLink.push(...await page.$$eval('[data-qa="serp-item__title"]', item => item.map(el => el?.href?.split('?')[0])))
+               // allLink.push(...await page.$$eval('[data-qa="serp-item__title"]', item => item.map(el => el?.href?.split('?')[0])))
                 if(counter >= pageCount) flag = false
                 console.log( 'counter :', counter, 'pageCount :', +pageCount)
                 counter++
@@ -123,11 +138,19 @@ const GetData = async ({page, URL, typeRequest = ''}) => {
         // }
         //console.log(content.toLowerCase().includes('автотрэйд'), 'link :', link)
 
+        if (!existsSync(path.resolve(__dirname, '..', 'RESULT', typeRequest))) {
 
-         await fs.writeFile(path.resolve(__dirname, '..', 'RESULT', typeRequest, `${new Date().toLocaleString()}.json`), JSON.stringify(allLink, null, 2))
+            mkdirSync(path.resolve(__dirname, '..', 'RESULT', typeRequest))
+            console.log('create folder : ', path.resolve(__dirname, '..', 'RESULT', typeRequest))
+        } else {
+            console.log('folder exist : ', path.resolve(__dirname, '..', 'RESULT', typeRequest))
+        }
+
+         await fs.writeFile(path.resolve(__dirname, '..', 'RESULT', typeRequest, `${position?.toLowerCase()}-${ moment().format('YYYY-MM-DD_HH:mm:ss')}.json`), JSON.stringify(resumeItems, null, 2))
         //}
-        console.log(allLink, 'allLink')
-        return allLink
+        console.log(resumeItems, 'resumeItems')
+        // console.log(typeRequest, 'typeRequest get data')
+        return resumeItems
 
     } catch (e) {
         console.log(e)

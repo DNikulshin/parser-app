@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 client/node_modules
+ react_extension_chrome_FA
 userData
 client/dist
 dist
@@ -25,3 +26,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+

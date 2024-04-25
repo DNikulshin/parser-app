@@ -15,17 +15,17 @@ const router = Router()
 router.post('/search', async (req, res) => {
     try {
         //console.log(process.env);
-        const { position = 'Сантехник', tag = 'ozon', region = 1, period= 7,  type, url} = req.body
+        const { url, type, position} = req.body
         console.log('type: ' , type)
         console.log('url: ' , url)
+        console.log('position: ', position)
         const data = await startParse({
-            //URL: process.env.SEARCH_URL + process.env.PARAMS + `&search_period${period}`+ `area=${region}` + `&text=!${position} "${tag}"`,
             URL: url,
             position,
-            type
+            typeRequest: type
         })
-        res.json(data)
-        return data
+        res.json(data || [])
+        return data || []
 
     } catch (e) {
         res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })

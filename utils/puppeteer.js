@@ -31,16 +31,16 @@ async function init() {
 // }
 
 
-async function startParse({URL, typeRequest}) {
+async function startParse({URL, typeRequest, position}) {
     const {page, browser} = await init()
     try {
         if(!fsSync.existsSync(pathCookie)) {
             await Auth(page, typeRequest)
-            const data = await GetData({page, URL, typeRequest})
+            const data = await GetData({page, URL, typeRequest, position})
             await browser.close()
             return data
         }
-        const data = await GetData({page, URL, typeRequest})
+        const data = await GetData({page, URL, typeRequest, position})
         await browser.close()
         return data
     } catch (e) {
